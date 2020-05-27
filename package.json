@@ -1,0 +1,26 @@
+{
+  "name": "ocp-quoter",
+  "version": "1.0.0",
+  "description": "The best quotes from the best show!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --use_strict index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinyExplosions/ocp-quoter.git"
+  },
+  "keywords": [
+    "OpenShift",
+    "Node.js"
+  ],
+  "author": "Al Graham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TinyExplosions/ocp-quoter/issues"
+  },
+  "homepage": "https://github.com/TinyExplosions/ocp-quoter#readme",
+  "dependencies": {
+    "fastify": "^2.14.1"
+  }
+}
