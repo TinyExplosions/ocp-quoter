@@ -1,5 +1,5 @@
-const server_port = process.env.PORT || process.env.OCP_QUOTER_SERVICE_PORT || 8080;
-const server_ip_address = process.env.IP   || process.env.OCP_QUOTER_PORT_8080_TCP_ADDR || '0.0.0.0';
+const server_port = process.env.PORT || 8080;
+const server_ip_address = process.env.IP || '0.0.0.0';
 
 // Pull in our Quotes file
 const quotes = require('./data/quotes.json');
