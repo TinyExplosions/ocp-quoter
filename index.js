@@ -30,11 +30,19 @@ fastify.get('/quote/:character', function(request, reply) {
     return reply.send(JSON.stringify(charArray[Math.floor(Math.random() * charArray.length)]));
 });
 
+// add a liveness route
+fastify.get('/liveness', async (request, reply) => {
+  return reply.type('text/html').send("ok")
+})
+// add a readiness route
+fastify.get('/readiness', async (request, reply) => {
+  return reply.type('text/html').send("ok")
+})
+
 // Run the Server
 const start = async () => {
   try {
     await fastify.listen(3000, '0.0.0.0')
-    fastify.log.info(`server listening on ${fastify.server.address().port}`)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
