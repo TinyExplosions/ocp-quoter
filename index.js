@@ -1,13 +1,12 @@
-const server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-const server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-
 // Pull in our Quotes file
-const quotes = require('./data/quotes.json');
+const quotes = require('./data/quotes.json')
 // Require the framework and instantiate it
-const fastify = require('fastify')({
-    logger: true
-});
-console.log("hello");
+const fastify = require('fastify')({ logger: true })
+
+// Basic route
+fastify.get('/', async (request, reply) => {
+  return { redirect: 'you really want to go to /quote' }
+})
 
 // Basic quote route
 fastify.get('/quote', function(request, reply) {
@@ -31,11 +30,14 @@ fastify.get('/quote/:character', function(request, reply) {
     return reply.send(JSON.stringify(charArray[Math.floor(Math.random() * charArray.length)]));
 });
 
-// Run the server
-fastify.listen(server_port, server_ip_address, function(err, address) {
-    if (err) {
-        fastify.log.error(err)
-        process.exit(1)
-    }
-    fastify.log.info(`server listening on ${address}`)
-});
+// Run the Server
+const start = async () => {
+  try {
+    await fastify.listen(3000, '0.0.0.0')
+    fastify.log.info(`server listening on ${fastify.server.address().port}`)
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+}
+start()
