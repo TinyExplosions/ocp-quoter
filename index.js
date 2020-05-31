@@ -31,11 +31,11 @@ fastify.get('/quote/:character', function(request, reply) {
 });
 
 // add a liveness route
-fastify.get('/liveness', async (request, reply) => {
+fastify.get('/liveness', { logLevel: 'error' }, async (request, reply) => {
   return reply.type('text/html').send("ok")
 })
 // add a readiness route
-fastify.get('/readiness', async (request, reply) => {
+fastify.get('/readiness', { logLevel: 'error' }, async (request, reply) => {
   return reply.type('text/html').send("ok")
 })
 
