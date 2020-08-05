@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/TinyExplosions/ocp-quoter#readme",
   "dependencies": {
-    "fastify": "^2.14.1"
+    "fastify": "^2.15.1"
   }
 }
